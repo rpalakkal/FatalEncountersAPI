@@ -16,7 +16,7 @@ Endpoint URL: https://fatalencounters.now.sh/api
 
 Make a **POST** request to the endpoint to get the JSON data. This should return the following:
 
-```json
+```python
 {
 	"result":{{result 1}, {result 2}, ...}, 
 	"next": "XXXXXXXXXXXXXXXXXXXXXXXX"
