@@ -1,6 +1,5 @@
 ﻿# Fatal Encounters API
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Fist.svg/1200px-Fist.svg.png" width="100"/>
 
 A simple API to access the [Fatal Encounters](https://fatalencounters.org/) database. See [this](https://docs.google.com/spreadsheets/d/1dKmaV_JiWcG8XBoRgP8b4e9Eopkpgt7FL7nyspvzAsE/edit#gid=0) Google Spreadsheet for more information on the data and what it provides.
 

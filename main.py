@@ -20,11 +20,12 @@ columns_to_remove = [
 'Video', 
 'Date&Description', 
 'Unique ID formula', 
-'Unique identifier (redundant)']
+'Unique identifier (redundant)',
+]
 
 df.drop(columns_to_remove, inplace=True, axis=1)
 
-renameColumns = ['uid', "name", "age", 'gender', "race", "raceImputed", 'raceProb', 'imageURL', 'incidentDate', 'streetAddress', 'city', 'state', 'zipCode', 'county', 'fullAddress', 'lat', 'lng', 'policeAgency', 'cause', 'description', 'source', 'year']
+renameColumns = ['uid', "name", "age", 'gender', "race", "raceImputed", 'raceProb', 'imageURL', 'incidentDate', 'streetAddress', 'city', 'state', 'zipCode', 'county', 'fullAddress', 'lat', 'lng', 'policeAgency', 'cause', 'description', 'intentionalUse', 'source', 'year']
 
 df.set_axis(renameColumns, inplace=True, axis=1)
 
@@ -42,19 +43,19 @@ df['age'] = df['age'].apply(pd.to_numeric, errors='coerce')
 df['year'] = df['year'].apply(pd.to_numeric, errors='coerce')
 
 data_dict = df.to_dict('records')
-print(df)
+print(df['intentionalUse'].unique())
 
-# #upload to mongodb
-# try:
-#     client = pymongo.MongoClient(db_url)
+#upload to mongodb
+try:
+    client = pymongo.MongoClient(db_url)
 
-#     db = client['fatalencounters']
-#     db['main'].rename('backup')
-#     db['main'].insert_many(data_dict)
-#     db['backup'].drop()
-# except:
-#     db['backup'].rename('main')
-#     print('Error')
+    db = client['fatalencounters']
+    db['main'].rename('backup')
+    db['main'].insert_many(data_dict)
+    db['backup'].drop()
+except:
+    db['backup'].rename('main')
+    print('Error')
 
 
 
